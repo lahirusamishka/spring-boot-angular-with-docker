@@ -21,7 +21,7 @@ public class CustomerController {
     @Autowired
     private CustomerService customerService;
     
-    @RequestMapping("/")
+    @GetMapping("/")
     public String home() {
             return "Hello World!";
     }
