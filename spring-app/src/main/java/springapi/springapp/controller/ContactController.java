@@ -11,15 +11,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import springapi.springapp.dto.CustomerDTO;
-import springapi.springapp.service.CustomerService;
+import springapi.springapp.dto.ContactDTO;
+import springapi.springapp.service.ContactService;
 
 @RestController
 @RequestMapping(value = "v1")
-public class CustomerController {
+public class ContactController {
     
     @Autowired
-    private CustomerService customerService;
+    private ContactService contactService;
     
     @GetMapping("/")
     public String home() {
@@ -27,22 +27,22 @@ public class CustomerController {
     }
     
     @GetMapping(value = "/all")
-    public ArrayList<CustomerDTO> getAllCustomers(){
-        return customerService.getAll();
+    public ArrayList<ContactDTO> getAllCustomers(){
+        return contactService.getAll();
     }
 
     @GetMapping(value = "/{id}")
-    public CustomerDTO getCustomerById(@PathVariable("id") Long customerId){
-        return customerService.getCustomer(customerId);
+    public ContactDTO getCustomerById(@PathVariable("id") Long customerId){
+        return contactService.getCustomer(customerId);
     }
 
     @DeleteMapping(value = "/{id}")
     public boolean deleteCustomer(@PathVariable("id") Long customerId){
-        return customerService.delete(customerId);
+        return contactService.delete(customerId);
     }
 
     @PostMapping("/save")
-    public boolean saveCustomer(@RequestBody CustomerDTO customerDTO){
-        return customerService.save(customerDTO);
+    public boolean saveCustomer(@RequestBody ContactDTO customerDTO){
+        return contactService.save(customerDTO);
     }
 }

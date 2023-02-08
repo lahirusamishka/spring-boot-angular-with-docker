@@ -6,25 +6,25 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import springapi.springapp.dto.CustomerDTO;
-import springapi.springapp.entity.Customer;
-import springapi.springapp.repository.CustomerRepository;
-import springapi.springapp.service.CustomerService;
+import springapi.springapp.dto.ContactDTO;
+import springapi.springapp.entity.Contact;
+import springapi.springapp.repository.ContactRepository;
+import springapi.springapp.service.ContactService;
 
 @Service
-public class CustomerServiceImpl implements CustomerService {
+public class ContactServiceImpl implements ContactService {
 
     @Autowired
-    private CustomerRepository customerRepository;
+    private ContactRepository customerRepository;
 
     @Override
-    public ArrayList<CustomerDTO> getAll() {
+    public ArrayList<ContactDTO> getAll() {
 
-        ArrayList<CustomerDTO> customerDTOS = new ArrayList<>();
+        ArrayList<ContactDTO> customerDTOS = new ArrayList<>();
 
-        List<Customer> customerList = customerRepository.findAll();
-        for (Customer customer: customerList) {
-            CustomerDTO customerDTO = new CustomerDTO();
+        List<Contact> customerList = customerRepository.findAll();
+        for (Contact customer: customerList) {
+            ContactDTO customerDTO = new ContactDTO();
 
             customerDTO.setId(customer.getId());
             customerDTO.setAddress(customer.getAddress());
@@ -37,10 +37,10 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public CustomerDTO getCustomer(Long id) {
-        Customer customer =  customerRepository.findById(id).get();
+    public ContactDTO getCustomer(Long id) {
+        Contact customer =  customerRepository.findById(id).get();
 
-        CustomerDTO customerDTO = new CustomerDTO();
+        ContactDTO customerDTO = new ContactDTO();
 
         customerDTO.setId(customer.getId());
         customerDTO.setAddress(customer.getAddress());
@@ -57,8 +57,8 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public boolean save(CustomerDTO customerDTO) {
-        Customer customer = new Customer();
+    public boolean save(ContactDTO customerDTO) {
+        Contact customer = new Contact();
 
         customer.setId(customerDTO.getId());
         customer.setAddress(customerDTO.getAddress());

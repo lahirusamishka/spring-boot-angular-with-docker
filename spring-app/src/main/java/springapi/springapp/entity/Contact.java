@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Customer {
+public class Contact {
 
     @Id
     private Long id;
@@ -14,10 +14,10 @@ public class Customer {
     private String address;
     private String contact;
 
-    public Customer() {
+    public Contact() {
     }
 
-    public Customer(Long id, String name, String address, String contact) {
+    public Contact(Long id, String name, String address, String contact) {
         this.id = id;
         this.name = name;
         this.address = address;

@@ -1,16 +1,16 @@
 package springapi.springapp.dto;
 
 
-public class CustomerDTO {
+public class ContactDTO {
     private Long id;
     private String name;
     private String address;
     private String contact;
 
-    public CustomerDTO() {
+    public ContactDTO() {
     }
 
-    public CustomerDTO(Long id, String name, String address, String contact) {
+    public ContactDTO(Long id, String name, String address, String contact) {
         this.id = id;
         this.name = name;
         this.address = address;
